@@ -2,25 +2,73 @@
 {
     private static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        double num1, num2;
+        int opcao = 0;
 
-        float n1, n2;
-        Console.WriteLine("Digite o primeiro número: ");
-        n1 = float.Parse(Console.ReadLine());
-        Console.WriteLine("Digite o segundo número: ");
-        n2 = float.Parse(Console.ReadLine());
-        Console.WriteLine("A soma é igual a: " + (n1 + n2));
-        Console.WriteLine("A subtração é igual a: " + (n1 - n2));
-        if (n2 == 0)
+        void Menu()
         {
-            Console.WriteLine("Ñão é possível dividir por zero!");
-        }
-        else
-        {
-            Console.WriteLine("A divisão é igual a: " + n1 / n2);
+            Console.Clear();
+            Console.WriteLine("1 - Somar");
+            Console.WriteLine("2 - Subtrair");
+            Console.WriteLine("3 - Multiplicar");
+            Console.WriteLine("4 - Dividir");
+            Console.WriteLine("5 - Sair");
+            Console.WriteLine("Escolha uma opção: ");
+            opcao = int.Parse(Console.ReadLine());
+
+            switch (opcao)
+            {
+                default:
+                    Console.WriteLine("Opção inválida!");
+                    Console.ReadLine();
+                    break;
+
+                case 1:
+                    Console.WriteLine("A soma dos números é igual a: " + (num1 + num2));
+                    Console.ReadLine();
+                    break;
+
+                case 2:
+                    Console.WriteLine("A subtração dos números é igual a: " + (num1 - num2));
+                    Console.ReadLine();
+                    break;
+
+                case 3:
+                    Console.WriteLine("A multiplicação dos números é igual a: " + (num1 * num2));
+                    Console.ReadLine();
+                    break;
+
+                case 4:
+                    if (num2 == 0)
+                    {
+                        Console.WriteLine("Não é possível dividir por zero!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("A divisão dos números é igual a: " + (num1 / num2));
+                    }
+                    Console.ReadLine();
+                    break;
+
+                case 5:
+                    Console.WriteLine("Até logo!");
+                    Console.ReadLine();
+                    break;
+
+
+                
+            }
         }
 
-        Console.WriteLine("A multiplicação é igual a: " + n1 * n2);
-        Console.ReadKey();
+        Console.WriteLine("Informe o primeiro número: ");
+        num1 = double.Parse(Console.ReadLine());
+
+        Console.WriteLine("Informe o segundo número: ");
+        num2 = double.Parse(Console.ReadLine());
+
+        while (opcao != 5)
+        {
+            Menu();
+        }
     }
 }

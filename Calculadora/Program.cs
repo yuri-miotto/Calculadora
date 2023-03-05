@@ -1,4 +1,6 @@
-﻿internal class Program
+﻿using System.Security.Cryptography.X509Certificates;
+
+internal class Program
 {
     private static void Main(string[] args)
     {
@@ -17,36 +19,25 @@
             opcao = int.Parse(Console.ReadLine());
 
             switch (opcao)
-            {
-                default:
-                    Console.WriteLine("Opção inválida!");
-                    Console.ReadLine();
-                    break;
+            {             
 
                 case 1:
-                    Console.WriteLine("A soma dos números é igual a: " + (num1 + num2));
+                    Somar();
                     Console.ReadLine();
                     break;
 
                 case 2:
-                    Console.WriteLine("A subtração dos números é igual a: " + (num1 - num2));
+                    Subtrair();
                     Console.ReadLine();
                     break;
 
                 case 3:
-                    Console.WriteLine("A multiplicação dos números é igual a: " + (num1 * num2));
+                    Multiplicar();
                     Console.ReadLine();
                     break;
 
                 case 4:
-                    if (num2 == 0)
-                    {
-                        Console.WriteLine("Não é possível dividir por zero!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("A divisão dos números é igual a: " + (num1 / num2));
-                    }
+                    Dividir();
                     Console.ReadLine();
                     break;
 
@@ -55,8 +46,10 @@
                     Console.ReadLine();
                     break;
 
-
-                
+                default:
+                    Console.WriteLine("Opção inválida!");
+                    Console.ReadLine();
+                    break;
             }
         }
 
@@ -69,6 +62,37 @@
         while (opcao != 5)
         {
             Menu();
+        }
+
+        void Somar()
+        {
+            double resultado = num1 + num2;
+            Console.WriteLine("A soma dos números é igual a: " + resultado);
+        }
+
+        void Subtrair()
+        {
+            double resultado = num1 - num2;
+            Console.WriteLine("A subtração dos números é igual a: " + resultado);
+        }
+
+        void Multiplicar()
+        {
+            double resultado = num1 * num2;
+            Console.WriteLine("A multiplicação dos números é igual a: " + resultado);
+        }
+
+        void Dividir()
+        {
+            if (num2 == 0)
+            {
+                Console.WriteLine("Não é possível dividir por zero!");
+            }
+            else
+            {
+                double resultado = num1 / num2;
+                Console.WriteLine("A divisão dos números é igual a: " + resultado);
+            }
         }
     }
 }
